@@ -1,0 +1,7 @@
+https://leetcode.com/problems/count-complete-tree-nodes/
+
+int sizeOftree(Node *root)
+{
+    if(root==NULL)  return 0;
+    return sizeOftree(root->left) + sizeOftree(root->right) + 1;
+}
