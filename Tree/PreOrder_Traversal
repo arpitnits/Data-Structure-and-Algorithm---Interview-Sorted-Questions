@@ -1,0 +1,10 @@
+https://leetcode.com/problems/binary-tree-preorder-traversal/
+
+void preorderTraversal(TreeNode* root) 
+{
+     if(!root)  return;
+     
+     cout<<root->data;
+     preorderTraversal(root->left);
+     preorderTraversal(root->right);
+}
