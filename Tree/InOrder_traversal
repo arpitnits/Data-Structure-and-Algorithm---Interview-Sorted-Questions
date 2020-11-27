@@ -1,0 +1,11 @@
+https://leetcode.com/problems/binary-tree-inorder-traversal/
+
+void inorder(Node *root)
+{
+    if(root==NULL)  return;
+    inorder(root->left);
+    cout<<root->data<<" ";
+    inorder(root->right);
+}
+
+# Inorder rule - <left><data><right>
