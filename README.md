@@ -1,2 +1,2 @@
 # LeetCode--Code
-This repo contain LeetCode codes from all the topics. 
+This repo contain all important data Structure codes from all the topics. 
