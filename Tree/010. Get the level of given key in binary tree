@@ -1,1 +1,20 @@
 https://practice.geeksforgeeks.org/problems/level-of-a-node-in-binary-tree/1
+
+int find_level(Node *root,int level, int key)
+{
+    if(!root)  return -1; 
+    if(root->data==key) return level;
+    
+    int l = find_level(root->left,level+1,key);
+    if(l!=-1) return l;
+    
+    return find_level(root->right,level+1,key);
+}
+
+int getLevel(struct Node *node, int target)
+{
+    int ans =  find_level(node,1,target);
+    if(ans!=-1) return ans;
+    
+    else return 0;
+}
