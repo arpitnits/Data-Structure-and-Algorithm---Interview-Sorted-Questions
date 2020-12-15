@@ -1,0 +1,44 @@
+
+/*find LIS and LDS and then calculate max(LIS[i]+LDS[i]-1) for every element of array to get longest bitonic sequence)*/
+
+int longestBitonicSubsequence(vector<int>& nums) 
+    {
+        
+        
+        int n = nums.size();
+        int LIS[n],LDS[n];
+        LIS[0]=1;   LDS[n-1]=1;
+        
+        //finding LIS array
+        for(int i=1;i<n;i++)
+        {
+            LIS[i]=1;
+            for(int j=0;j<i;j++)
+            {
+                if(nums[i]>nums[j] and LIS[i]<LIS[j]+1)
+                    LIS[i]=  LIS[j]+1;
+            }
+            
+        }
+        
+        //finding LDS array
+        for(int i=n-2;i>=0;i--)
+        {
+            LDS[i]=1;
+            for(int j=n-1;j>i;j--)
+            {
+                if(nums[i]>nums[j] and LDS[i]<LDS[j]+1)
+                    LDS[i]=  LDS[j]+1;
+            }
+            
+        }
+        
+        int ans =1;
+        //find largest bitonic sequence
+        for(int i=0;i<n;i++)
+            ans = max(ans,LIS[i]+LDS[i]-1);
+        
+        return ans;
+        
+        
+    }
